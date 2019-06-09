@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Client</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+    <script src="js/WeatherServices.js"></script>
+
+    <style>
+        .content {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+    <body>
+        <div align="center">
+            <h2>Weather Client Searcher</h2>
+
+            <div>
+                <button onclick="Render.renderByCityName()">By Name</button>
+                <button onclick="Render.renderByCityId()">By City ID</button>
+                <button onclick="Render.renderByCoordinate()">By Coordinates</button>
+                <button onclick="Render.renderByZipCode()">By Zip Code</button>
+            </div>
+
+
+            <div id="contenedor" class="content">
+
+                <div class="option_cityID option " >
+                    <select id="city_id" onchange="Controller.getWeatherByCityId(this)" >
+                        <option value="-1">Select option</option>
+                        <option value="2643743">London</option>
+                        <option value="1819729">Hong Kong</option>
+                    </select>
+                </div>
+
+                <div class="option_cityName option content">
+                    <input id="city_name" type="text" placeholder="City Name">
+                    <button onclick="Controller.getWeatherByCityName()">Search</button>
+                </div>
+
+                <div class="option_cityCoord option content">
+                    <input id="city_lat" type="text" placeholder="Latitude">
+                    <input id="city_lon" type="text" placeholder="Longitude">
+                    <button onclick="Controller.getWeatherByCityCoordinates()">Search</button>
+                </div>
+
+                <div class="option_cityZipcode option content">
+                    <input id="city_zipcode" type="text" placeholder="ZipCode">
+                    <input id="city_countrycode" type="text" placeholder="Country Code">
+                    <button onclick="Controller.getWeatherByCityZipCode()">Search</button>
+                </div>
+
+                <div id="renderResponse" align="center"></div>
+
+            </div>
+
+        </div>
+    </body>
+</html>
